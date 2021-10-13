@@ -28,8 +28,8 @@
     
 		<div class="flex-container" id="target">
 		  <div class= "stack"> row item 1</div>   
-		  <div class= "stack">row item 2</div>  
-		  <div class= "stack">row item 3</div>  
+		  <div class= "stack"> row item 2</div>  
+		  <div class= "stack"> row item 3</div>  
 		</div>
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
@@ -38,6 +38,7 @@
         <button onclick="makeNewDiv()">Push value</button>
         <button onclick="popItem()">Pop</button>
         <button onclick="zap()">Zap values</button>
+        <button onclick="unique()">Unique</button>
 	
 	
 </body>
@@ -72,6 +73,17 @@
                 }
             }
         }
+    }
+     function unique(){
+        var items = document.getElementsByClassName("stack")
+		for(var i=0; i<items.length; i++){
+			for(var j=i+1; j<items.length; j++){
+                if(items[i].innerHTML == items[j].innerHTML){
+                    items[j].remove()
+                    j--;i--
+                }
+            }
+		}
     }
 </script>
 </html>	
