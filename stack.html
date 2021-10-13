@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html> <head> <style>
+<html> <head>
+    <title>Stack </title>
+    <style>
     .flex-container {
       display: flex;  flex-direction:row;
       background-color: red;
@@ -32,7 +34,10 @@
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Push value</button>
+		<input id="inputElement" type="text"><br><br>
+        <button onclick="makeNewDiv()">Push value</button>
+        <button onclick="popItem()">Pop</button>
+        <button onclick="zap()">Zap values</button>
 	
 	
 </body>
@@ -47,5 +52,26 @@
 		/* add it to the container */
 		document.getElementById('target').appendChild(element)
 	}
+    function popItem(){
+        var items = document.getElementsByClassName("stack")
+        var length = items.length
+        if(length>0)
+        items[length-1].remove()
+    }
+
+    function zap(){
+        var items = document.getElementsByClassName("stack")
+        let input = document.getElementById("inputElement").value
+        if(items!= undefined && items.length >0){
+            for(let index=0; index<items.length; index++){
+                if(items[index].innerHTML == input){
+                    var removeVar = items[index].innerHTML
+                    items[index].remove()
+                    console.log(removeVar)
+                    index--
+                }
+            }
+        }
+    }
 </script>
 </html>	
